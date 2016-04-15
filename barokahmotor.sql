@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2016 at 08:25 AM
+-- Generation Time: Apr 15, 2016 at 03:31 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -27,12 +27,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `booking` (
+  `id_booking` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu` int(11) NOT NULL,
   `id_pelanggan` varchar(15) NOT NULL,
   `keluhan` text NOT NULL,
   `plat_motor` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id_booking`, `tanggal`, `waktu`, `id_pelanggan`, `keluhan`, `plat_motor`) VALUES
+(1, '2016-04-16', 9, 'yoga', 'assssssssssssssssssssssssssssssssssssssssssssssssss', 'sa'),
+(2, '2016-04-17', 10, 'yoga', 'zxczzxczzzzzzzzzzzzzzzzzzzzz', 'zxx'),
+(3, '2016-04-30', 14, 'yoga', 'saaaaawwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww', 'zdsad'),
+(4, '2016-04-20', 7, 'yoga', 'zxczx', 'zxcxzczx');
 
 -- --------------------------------------------------------
 
@@ -41,6 +52,7 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `konten` (
+  `id_konten` int(11) NOT NULL,
   `judul` varchar(30) NOT NULL,
   `jenis` varchar(15) NOT NULL,
   `isi` text NOT NULL,
@@ -93,6 +105,13 @@ CREATE TABLE `pelanggan` (
   `password` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `pelanggan`
+--
+
+INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `alamat`, `no_telpon`, `email`, `password`) VALUES
+('yoga', 'yoga', 'alamatttttttttttttttttttttttttttttt', '0811111111111', 'yogaaaaaaaaa', 'yoga');
+
 -- --------------------------------------------------------
 
 --
@@ -100,8 +119,8 @@ CREATE TABLE `pelanggan` (
 --
 
 CREATE TABLE `pemakaian_promosi` (
-  `judul` varchar(30) NOT NULL,
-  `id_pelanggan` varchar(15) NOT NULL
+  `id_pelanggan` varchar(15) NOT NULL,
+  `id_konten` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -143,13 +162,15 @@ CREATE TABLE `users` (
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id_booking`),
   ADD KEY `id_pelanggan` (`id_pelanggan`);
 
 --
 -- Indexes for table `konten`
 --
 ALTER TABLE `konten`
-  ADD PRIMARY KEY (`judul`);
+  ADD PRIMARY KEY (`id_konten`),
+  ADD KEY `id_konten` (`id_konten`);
 
 --
 -- Indexes for table `password_resets`
@@ -169,7 +190,7 @@ ALTER TABLE `pelanggan`
 --
 ALTER TABLE `pemakaian_promosi`
   ADD KEY `id_pelanggan` (`id_pelanggan`),
-  ADD KEY `judul` (`judul`);
+  ADD KEY `id_konten` (`id_konten`);
 
 --
 -- Indexes for table `pesan`
@@ -189,6 +210,16 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `konten`
+--
+ALTER TABLE `konten`
+  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `pesan`
 --
@@ -213,8 +244,8 @@ ALTER TABLE `booking`
 -- Constraints for table `pemakaian_promosi`
 --
 ALTER TABLE `pemakaian_promosi`
-  ADD CONSTRAINT `judul` FOREIGN KEY (`judul`) REFERENCES `konten` (`judul`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `pemakaian_promosi_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pemakaian_promosi_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pemakaian_promosi_ibfk_2` FOREIGN KEY (`id_konten`) REFERENCES `konten` (`id_konten`);
 
 --
 -- Constraints for table `pesan`
