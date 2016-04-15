@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app_template');
 });
+
+Route::get('booking/schedule', 'BookingController@getSchedule');
+
+Route::post('booking/add', 'BookingController@store');
+
+Route::get('booking/create', function() {
+	return view('booking.form');
+});
+
+Route::get('booking/delete/{id}', 'BookingController@delete');
+
+Route::post('booking/{id}/update', 'BookingController@update');
+
+Route::get('booking/get/{id}','BookingController@get');
