@@ -10,6 +10,8 @@ use App\Booking;
 
 use Session;
 
+use Auth;
+
 class BookingController extends Controller
 {
     //
@@ -40,6 +42,11 @@ class BookingController extends Controller
         $booking->delete();
         Session::flash('message', 'data booking berhasil dihapus');
         return \Redirect::to('booking/schedule');
+    }
+
+    public function edit() {
+        $pend = Auth::user()->nama;
+        return view('booking.form', compact('pend'));
     }
 
     public function update(Request $request, $id) {

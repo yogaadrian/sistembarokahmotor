@@ -50,35 +50,39 @@
         <!-- link and dropdown -->
         <ul class="nav navbar-nav hidden-sm">
           <li>
-            <a href="{{URL::to('/')}}">HOME</a>
+            <a href="{{URL::to('/')}}">TENTANG KAMI</a>
+          </li>
+           <li>
+            <a href="#">PROMO</a>
           </li>
           <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
               <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
-              <span>PENDIDIKAN</span> <span class="caret"></span>
+              <span>BOOKING</span> <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
               
               <li>
-                <a href="{{URL::to('pendidikan-formal')}}">
-                  <span>Pendidikan Formal</span>
+                <a href="{{URL::to('booking/create')}}">
+                  <span>Lakukan Pemesanan</span>
                 </a>
               </li>
 
               <li>
-                <a href="{{URL::to('pendidikan-informal')}}">
-                  <span>Pendidikan Informal</span>
-                </a>
-              </li>
-              <li>
-                <a href="{{URL::to('daftarinstitusi')}}">
-                  <span>Institusi</span>
+                <a href="{{URL::to('booking/schedule')}}">
+                  <span>Lihat Jadwal Minggu ini</span>
                 </a>
               </li>
             </ul>
           </li>
-           <li>
-            <a href="#">PROJECT APLIKASI LAIN</a>
+          <li>
+            <a href="#">INFO</a>
+          </li>
+          <li>
+            <a href="#">KLIK/SARAN</a>
+          </li>
+          <li>
+            <a href="{{URL::to('login')}}">LOGIN</a>
           </li>
         </ul>
         <!-- / link and dropdown -->
@@ -221,24 +225,7 @@
               <li class="hidden-folded text-dark-grey text-xs padder-md padder-v-sm">
                 <span>Components</span>
               </li>
-              <li>
-                <a href="{{URL::to('pendidikan-formal')}}">
-                  <i class="icon-bdg_table"></i>
-                  <span class="font-bold">Formal</span>
-                </a>
-              </li>
-              <li>
-                <a href="{{URL::to('pendidikan-informal')}}">
-                  <i class="icon-bdg_table"></i>
-                  <span class="font-bold">Informal</span>
-                </a>
-              </li>
-              <li>
-                <a href="{{URL::to('daftarinstitusi')}}">
-                  <i class="icon-bdg_table"></i>
-                  <span class="font-bold">Institusi</span>
-                </a>
-              </li>
+        
             </ul>
           </nav>
           <!-- nav -->

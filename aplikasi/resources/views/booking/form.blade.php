@@ -26,11 +26,10 @@
 		    <input type="text" class="form-control" placeholder="waktu" name="waktu" required>
 		  </div>
 		</div>
-
 		<div class="form-group">
 		  <label class="col-lg-2 control-label">ID Pelanggan</label>
 		  <div class="col-lg-8">
-		    <input type="text" class="form-control" placeholder="id pelanggan" name= "id_pelanggan" required>
+		    <input type="text" class="form-control" placeholder="id pelanggan" name= "id_pelanggan" value="{{$pend}}" readonly required>
 		  </div>
 		</div>
 

@@ -115,7 +115,7 @@
                 Booking
                 </small>
               </h2>
-              <form id="contact-form" class='contact-form'>
+              <form id="contact-form" class='contact-form' method = "POST" action = "inputbooking.php">
                 <div class="contact-form-loader"></div>
                 <fieldset>
                   <label class="name">
@@ -146,23 +146,23 @@
                   </label>
 				  
 				  Waktu
-				  <label class="name">
-                    <input type="time" name="time" value="" data-constraints="@Required @Email"/>
+				  <label class="waktu">
+                    <input type="time" name="time" value="" />
                     
                     <span class="empty-message">*This field is required.</span>
                     <span class="error-message">*This is not a valid email.</span>
                   </label>
 				  
 				  Tanggal
-				 <label class="phone">
-                    <input type="date" name="date" value="" data-constraints="@Required @Email"/>
+				 <label class="tanggal">
+                    <input type="date" name="date" value="" />
                     
                     <span class="empty-message">*This field is required.</span>
                     <span class="error-message">*This is not a valid email.</span>
                   </label>
 				  
-				  <label class="email">
-                    <input type="text" name="layanantambahan" placeholder="Layanan Tambahan:" value="" data-constraints="@Required @Email"/>
+				  <label class="text">
+                    <input type="text" name="layanantambahan" placeholder="Layanan Tambahan:" value="" />
                     
                     <span class="empty-message">*This field is required.</span>
                     <span class="error-message">*This is not a valid email.</span>
@@ -171,7 +171,7 @@
                  <!--  <label class="recaptcha"> <span class="empty-message">*This field is required.</span> </label> -->
               
                   <div class="btn-wr text-primary">
-                    <a class="btn btn-primary" href="#" data-type="submit">Kirimkan</a>
+                    <button type="submit" class="btn btn-primary">Kirimkan</button>
                   </div>
                 </fieldset>
                 <div class="modal fade response-message">
