@@ -45,7 +45,7 @@ class BookingController extends Controller
     }
 
     public function edit() {
-        $pend = Auth::user()->nama;
+        $pend = Auth::user()->id;
         return view('booking.form', compact('pend'));
     }
 

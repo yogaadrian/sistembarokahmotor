@@ -28,6 +28,16 @@ Route::post('booking/{id}/update', 'BookingController@update');
 
 Route::get('booking/get/{id}','BookingController@get');
 
+Route::get('pesan/', 'PesanController@getAll');
+Route::get('pesan/kirim', 'PesanController@kirimPesan');
+Route::post('pesan/add', 'PesanController@store');
+Route::get('pesan/tanggapi/{id}', 'PesanController@tanggapi');
+Route::post('pesan/tanggap/{id}', 'PesanController@updateTanggapan');
+
+Route::get('konten/', 'KontenController@getAll');
+Route::get('konten/create', 'KontenController@create');
+Route::post('konten/add', 'KontenController@store');
+
 
 // route to show the login form
 Route::get('login', array('uses' => 'AutentifikasiController@showLogin'));

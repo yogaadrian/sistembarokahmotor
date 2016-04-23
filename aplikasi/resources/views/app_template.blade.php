@@ -79,7 +79,7 @@
             <a href="#">INFO</a>
           </li>
           <li>
-            <a href="#">KLIK/SARAN</a>
+            <a href="#">KIRIM PESAN</a>
           </li>
           <li>
             <a href="{{URL::to('login')}}">LOGIN</a>
