@@ -744,17 +744,11 @@ body {
 }
 
 .app-content {
-  height: 100%;
-}
-
-.app-content:before,
-.app-content:after {
-  display: table;
-  content: " ";
-}
-
-.app-content:after {
-  clear: both;
+  width: auto !important;
+  height: auto;
+  padding: 0 !important;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .app-content-full {
@@ -923,7 +917,6 @@ body {
   .navbar-collapse,
   .app-content,
   .app-footer {
-    margin-left: 200px;
   }
   .app-aside-right {
     position: absolute;
