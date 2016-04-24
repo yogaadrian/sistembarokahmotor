@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2016 at 03:31 AM
+-- Generation Time: Apr 24, 2016 at 10:32 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -56,8 +56,17 @@ CREATE TABLE `konten` (
   `judul` varchar(30) NOT NULL,
   `jenis` varchar(15) NOT NULL,
   `isi` text NOT NULL,
-  `tanggal` datetime NOT NULL
+  `tanggal` datetime NOT NULL,
+  `url_gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `konten`
+--
+
+INSERT INTO `konten` (`id_konten`, `judul`, `jenis`, `isi`, `tanggal`, `url_gambar`) VALUES
+(1, 'asdasdasd', 'asdasdsa', 'sadasdasdasdasd', '2016-04-24 00:00:00', 'test.png'),
+(2, 'sdasdas', 'asdsad', 'asdasd', '2016-04-24 00:00:00', 'Untitled.png');
 
 -- --------------------------------------------------------
 
@@ -102,15 +111,16 @@ CREATE TABLE `pelanggan` (
   `alamat` text NOT NULL,
   `no_telpon` varchar(15) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `password` varchar(15) NOT NULL
+  `password` varchar(15) NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pelanggan`
 --
 
-INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `alamat`, `no_telpon`, `email`, `password`) VALUES
-('yoga', 'yoga', 'alamatttttttttttttttttttttttttttttt', '0811111111111', 'yogaaaaaaaaa', 'yoga');
+INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `alamat`, `no_telpon`, `email`, `password`, `remember_token`) VALUES
+('yoga', 'yoga', 'alamatttttttttttttttttttttttttttttt', '0811111111111', 'yoga@a.a', '$2y$10$7zECt.ms', NULL);
 
 -- --------------------------------------------------------
 
@@ -132,11 +142,19 @@ CREATE TABLE `pemakaian_promosi` (
 CREATE TABLE `pesan` (
   `id_pesan` int(11) NOT NULL,
   `id_pelanggan` varchar(15) NOT NULL,
-  `Judul` varchar(40) NOT NULL,
-  `Isi` text NOT NULL,
-  `Jenis` varchar(15) NOT NULL,
-  `Tanggapan` text NOT NULL
+  `judul` varchar(40) NOT NULL,
+  `isi` text NOT NULL,
+  `jenis` varchar(15) NOT NULL,
+  `tanggapan` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id_pesan`, `id_pelanggan`, `judul`, `isi`, `jenis`, `tanggapan`) VALUES
+(1, '1', 'adsada', 'sdaasdasdsadsadasd', 'asdasdasdasd', 'AAS'),
+(2, '1', 'asdasd', 'awaw', 'sadasdsa', NULL);
 
 -- --------------------------------------------------------
 
@@ -145,14 +163,23 @@ CREATE TABLE `pesan` (
 --
 
 CREATE TABLE `users` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `nama` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `alamat` text COLLATE utf8_unicode_ci NOT NULL,
+  `no_telepon` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `nama`, `alamat`, `no_telepon`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+('1', 'Yoga Adrian', 'alamatttttttttttttttttttttttttttttt', '0811111111111', 'yoga@a.a', '$2y$10$7zECt.msnndSWhgl9gImaeQthxLzzcrtCbvVwvsgrviJKRu73taUa', NULL, '2016-04-19 15:25:23', '2016-04-19 15:25:23');
 
 --
 -- Indexes for dumped tables
@@ -183,7 +210,8 @@ ALTER TABLE `password_resets`
 -- Indexes for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  ADD PRIMARY KEY (`id_pelanggan`);
+  ADD PRIMARY KEY (`id_pelanggan`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `pemakaian_promosi`
@@ -219,17 +247,12 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `konten`
 --
 ALTER TABLE `konten`
-  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -246,12 +269,6 @@ ALTER TABLE `booking`
 ALTER TABLE `pemakaian_promosi`
   ADD CONSTRAINT `pemakaian_promosi_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pemakaian_promosi_ibfk_2` FOREIGN KEY (`id_konten`) REFERENCES `konten` (`id_konten`);
-
---
--- Constraints for table `pesan`
---
-ALTER TABLE `pesan`
-  ADD CONSTRAINT `pesan_ibfk_1` FOREIGN KEY (`id_pelanggan`) REFERENCES `pelanggan` (`id_pelanggan`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
