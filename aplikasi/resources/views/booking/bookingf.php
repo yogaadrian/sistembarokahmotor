@@ -84,7 +84,7 @@
 			@foreach($booking as $b)
 			@if($b-> tanggal == date("Y-m-d", strtotime("+3 days")) && $b-> waktu == 8 )
 
-			<button onclick= "myfunction()"> ada booking</button>
+			{{{"ada booking"}}}
 			</td>
 			@endif
 			@endforeach
@@ -93,7 +93,7 @@
 			@foreach($booking as $b)
 			@if($b-> tanggal == date("Y-m-d", strtotime("+4 days")) && $b-> waktu == 8 )
 
-			<button onclick= "myfunction()"> ada booking</button>
+			{{{"ada booking"}}}
 			</td>
 			@endif
 			@endforeach
@@ -496,25 +496,17 @@
 			<td>           
 			@foreach($booking as $b)
 			@if($b-> tanggal == date("Y-m-d", strtotime("+4 days")) && $b-> waktu == 14 )
-			<div>
-			<button onclick= "myfunction()"> ada booking</button>
-			</div>
+
+			{{{"ada booking"}}}
 			</td>
 			@endif
 			@endforeach
 			
-   
+			<td>           
 			@foreach($booking as $b)
 			@if($b-> tanggal == date("Y-m-d", strtotime("+5 days")) && $b-> waktu == 14 )
-			<td>        
-			<div class="btn-group dropdown">             
-                  <button class="btn m-b-sm m-r-sm btn-warning btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="">Edit</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Hapus</a></li>
-                  </ul>
-            </div>
+
+			{{{"ada booking"}}}
 			</td>
 			@endif
 			@endforeach
