@@ -51,14 +51,6 @@
               <img src="{{$b-> url_gambar}}">
 			  <p> {{$b-> tanggal}} </p>
               
-                <div class="btn-group dropdown">             
-                  <button class="btn m-b-sm m-r-sm btn-warning btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="">Edit</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Hapus</a></li>
-                  </ul>
-                </div>
 				
 				         </div>  
                 </div>
