@@ -60,10 +60,9 @@ class AutentifikasiController extends Controller
 		        // return Redirect::to('secure');
 		        // for now we'll just echo success (even though echoing in a controller is bad)
 		        echo 'SUCCESS!';
-		        return Redirect::to('booking/create');
+		        return Redirect::to('tentangkami');
 
 		    } else {        
-		    	dd('show');
 		        // validation not successful, send back to form 
 		        return Redirect::to('login');
 

@@ -20,6 +20,11 @@ class PesanController extends Controller
     	return view('pesan.data',compact('pesan'));
     }
 
+    public function getAllpelanggan() {
+        $pesan = Pesan::all();
+        return view('pesan.datapelanggan',compact('pesan'));
+    }
+
     public function kirimPesan(){
     	$pend = Auth::user()->id;
     	return view('pesan.kirim', compact('pend'));
@@ -33,7 +38,7 @@ class PesanController extends Controller
         $pesan->jenis = $request->input('jenis');
         $pesan->save();
         Session::flash('message', 'pesan berhasil ditambahkan');
-    	return \Redirect::to('booking/schedule');
+    	return \Redirect::to('pesan/lihat');
     }
 
     public function tanggapi($id) {
@@ -49,7 +54,7 @@ class PesanController extends Controller
         $pesan->save();
 
        Session::flash('message', 'pesan berhasil ditanggapi');
-    	return \Redirect::to('booking/schedule');
+    	return \Redirect::to('pesan/frontdesk');
     }
 
     public function delete($id) {

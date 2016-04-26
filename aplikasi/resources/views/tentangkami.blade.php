@@ -1,11 +1,11 @@
 @extends('app_template')
 
 @section('title')
-  Konten
+ Tentang Kami
 @stop
 
 @section('page_title')
-  <h1>Info</h1>
+<h1>Tentang Kami
 @stop
 
 @section('aside')
@@ -27,37 +27,21 @@
       <!-- Tampilkan Pesan -->
     </div>
     <div>
-
-          @foreach($konten as $b)
-		  
+\
 		<div class="container center991">
           <div class="row offs3">
             <div class="col-md-4 col-sm-12 col-xs-12">
               <div class="thumbnail thumb-shadow">
                 <div class="caption bg3 capt_hover1">
-                  <h3>
-                    {{$b-> judul}}
-                  </h3>
-                  <div class="wrap">
-                    <p>
-              {{$b-> id_konten}}
-
-              
-              
-              {{$b-> jenis}}
-              {{$b-> isi}}
-              
-			  </p>
-              <img src="{{$b-> url_gambar}}">
-			  <p> {{$b-> tanggal}} </p>
-              
+            
+              <img src="Test.png">
+			 
 				
 				         </div>  
                 </div>
               </div>              
             </div>
 
-          @endforeach
 
     </div>
 	</div>

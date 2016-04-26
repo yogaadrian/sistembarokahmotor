@@ -50,10 +50,10 @@
         <!-- link and dropdown -->
         <ul class="nav navbar-nav hidden-sm">
           <li>
-            <a href="{{URL::to('/')}}">TENTANG KAMI</a>
+            <a href="{{URL::to('tentangkami')}}">TENTANG KAMI</a>
           </li>
            <li>
-            <a href="{{URL::to('konten')}}">PROMO</a>
+            <a href="{{URL::to('promosi')}}">PROMO</a>
           </li>
           <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
@@ -78,9 +78,27 @@
           <li>
             <a href="{{URL::to('konten')}}">INFO</a>
           </li>
-          <li>
-            <a href="{{URL::to('pesan/kirim')}}">KIRIM PESAN</a>
+          <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+              <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+              <span>PESAN</span> <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              
+              <li>
+                <a href="{{URL::to('pesan/kirim')}}">
+                  <span>Kirim Pesan</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="{{URL::to('pesan/lihat')}}">
+                  <span>Lihat Pesan</span>
+                </a>
+              </li>
+            </ul>
           </li>
+          
           <li>
             <a href="{{URL::to('login')}}">LOGIN</a>
           </li>

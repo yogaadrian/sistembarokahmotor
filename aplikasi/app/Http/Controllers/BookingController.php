@@ -17,12 +17,12 @@ class BookingController extends Controller
     //
     public function getSchedule() {
     	$booking = Booking::whereRaw('tanggal BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)')->get();
-    	return view('booking.schedule',compact('booking'));
+    	return view('booking.bookingp',compact('booking'));
     }
 
     public function getDetailedSchedule() {
     	$booking = Booking::whereRaw('tanggal BETWEEN NOW() AND DATE_ADD(NOW(), INTERVAL 7 DAY)')->get();
-    	return view('belum ada front end',compact('booking'));
+    	return view('booking.bookingf',compact('booking'));
     }
 
     public function store(Request $request) {

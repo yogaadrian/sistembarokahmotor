@@ -15,7 +15,14 @@ Route::get('/', function () {
     return view('app_template');
 });
 
+Route::get('tentangkami', function () {
+    return view('tentangkami');
+});
+
+
+
 Route::get('booking/schedule', 'BookingController@getSchedule');
+Route::get('booking/frontdesk/schedule', 'BookingController@getDetailedSchedule');
 
 Route::post('booking/add', 'BookingController@store');
 
@@ -28,14 +35,17 @@ Route::post('booking/{id}/update', 'BookingController@update');
 
 Route::get('booking/get/{id}','BookingController@get');
 
-Route::get('pesan/', 'PesanController@getAll');
+Route::get('pesan/frontdesk', 'PesanController@getAll');
+
+Route::get('pesan/lihat', 'PesanController@getAllpelanggan');
 Route::get('pesan/kirim', 'PesanController@kirimPesan');
 Route::post('pesan/add', 'PesanController@store');
-Route::get('pesan/tanggapi/{id}', 'PesanController@tanggapi');
+Route::get('pesan/frontdesk/tanggapi/{id}', 'PesanController@tanggapi');
 Route::post('pesan/tanggap/{id}', 'PesanController@updateTanggapan');
 
 Route::get('konten/', 'KontenController@getAll');
-Route::get('konten/create', 'KontenController@create');
+Route::get('promosi/', 'KontenController@getAllpromo');
+Route::get('konten/sa/create', 'KontenController@create');
 Route::post('konten/add', 'KontenController@store');
 
 

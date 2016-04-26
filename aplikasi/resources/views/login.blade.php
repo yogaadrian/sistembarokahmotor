@@ -1,5 +1,6 @@
 <!-- app/views/login.blade.php -->
 
+
 <!doctype html>
 <html>
 <head>
@@ -18,16 +19,19 @@
 		{!! $errors->first('password') !!}
 		</p>
 		<p>
-		{!! Form::label('email', 'Email Address') !!}
+		{!! Form::label('email', 'Email Address ') !!}
 		{!! Form::text('email', Input::old('email'), array('placeholder' => 'awesome@awesome.com')) !!}
+		<br>
+		<br>
 <p>
     {!! Form::label('password', 'Password') !!}
     {!! Form::password('password') !!}
 </p>
-
+<br>
+<br>
 <p>{!! Form::submit('Submit!') !!}</p>
 {!! Form::close() !!}
-
+<br><br>
 	</section><!-- content -->
 </div><!-- container -->
 <!-- if there are login errors, show them here -->

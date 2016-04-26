@@ -18,18 +18,9 @@
     </div>
   @endif
   <div class="row">
-    <div class="col-md-3">
-      <button class="btn m-b-sm m-r-sm btn-success" onclick="location.href = '';"><i class="m-r-xs fa fa-plus"></i>Tambahkan Pendidikan</button>
-    </div>
+    
     <div class="col-md-6">
-      <form action = "" method="GET">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Cari berdasarkan NIP" name="query" required> 
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">Go!</button>
-        </span>
-      </div>
-    </form>
+      
     </div>
   </div>
 @stop
@@ -1217,10 +1208,10 @@ d = document;
 
     msg = alertObj.appendChild(d.createElement("p"));
     //msg.appendChild(d.createTextNode(txt));
-    msg.innerHTML = txt;
+    msg.innerHTML = "<br> Keluhan: "  + txt + "<br>\n";
 	
 	msg2 = alertObj.appendChild(d.createElement("p"));
-	msg2.innerHTML = idp+ "				" +plat;
+	msg2.innerHTML = "ID Pelanggan:  "+idp+ "<br><br>				no plat: " +plat + "<br><br><br>";
 	
 
 	

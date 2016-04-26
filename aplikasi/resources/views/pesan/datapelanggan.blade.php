@@ -51,14 +51,7 @@
               <td>{{$b-> tanggapan}}</td>
               <td> </td>
               <td>
-                <div class="btn-group dropdown">             
-                  <button class="btn m-b-sm m-r-sm btn-warning btn-sm" data-toggle="dropdown"><span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                    <li><a href="{{URL::to('/')}}/pesan/frontdesk/tanggapi/{{$b->id_pesan}}">Tanggapi</a></li>
-                    <li class="divider"></li>
-                    <li><a onclick="LihatDetail('<?php echo $b-> isi?>', '<?php echo $b-> judul?>')">Lihat Detail</a> </li>
-                  </ul>
-                </div>
+                
               </td>
             </tr>  
             <?php $i++ ;?>

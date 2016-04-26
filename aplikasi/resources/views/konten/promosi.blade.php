@@ -5,7 +5,7 @@
 @stop
 
 @section('page_title')
-  <h1>Info</h1>
+  <h1>Promosi</h1>
 @stop
 
 @section('aside')

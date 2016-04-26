@@ -19,6 +19,10 @@ class KontenController extends Controller
     	$konten = Konten::all();
     	return view('konten.data',compact('konten'));
     }
+    public function getAllpromo() {
+        $konten = Konten::all();
+        return view('konten.promosi',compact('konten'));
+    }
 
     public function create(){
     	return view('konten.create');
