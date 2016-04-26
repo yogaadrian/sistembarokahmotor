@@ -53,7 +53,7 @@
             <a href="{{URL::to('/')}}">TENTANG KAMI</a>
           </li>
            <li>
-            <a href="#">PROMO</a>
+            <a href="{{URL::to('konten')}}">PROMO</a>
           </li>
           <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
@@ -76,10 +76,10 @@
             </ul>
           </li>
           <li>
-            <a href="#">INFO</a>
+            <a href="{{URL::to('konten')}}">INFO</a>
           </li>
           <li>
-            <a href="#">KIRIM PESAN</a>
+            <a href="{{URL::to('pesan/kirim')}}">KIRIM PESAN</a>
           </li>
           <li>
             <a href="{{URL::to('login')}}">LOGIN</a>
